@@ -4,6 +4,7 @@
 
 - [BepInEx](https://github.com/BepInEx/BepInEx)
 - [BepInEx.ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager)
+- [Coyote-Game-Hub](https://github.com/hyperzlib/DG-Lab-Coyote-Game-Hub)
 
 ## 用法
 
