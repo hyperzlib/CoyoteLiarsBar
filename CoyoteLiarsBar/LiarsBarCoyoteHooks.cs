@@ -12,7 +12,7 @@ namespace CoyoteLiarsBar
 
         private static CoyoteGameHubConnector GetApi()
         {
-            return new CoyoteGameHubConnector(LiarsBarCoyoteMod.ControllerUrl.Value, LiarsBarCoyoteMod.CoyoteClientId.Value);
+            return new CoyoteGameHubConnector(LiarsBarCoyoteMod.ControllerConnectCode.Value);
         }
 
         public static void OnGameStart()

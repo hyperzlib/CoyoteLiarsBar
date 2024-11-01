@@ -12,11 +12,21 @@ namespace CoyoteGameHubSDK
         private string EntryStrength;
         private string EntryFire;
 
-        public CoyoteGameHubConnector(string controllerUrl, string clientId)
+        public CoyoteGameHubConnector(string connectCode)
         {
             // 初始化
-            this.controllerUrl = controllerUrl;
-            this.clientId = clientId;
+            // 解析连接码
+            var parts = connectCode.Split('@');
+            if (parts.Length == 2)
+            {
+                clientId = parts[0];
+                controllerUrl = parts[1];
+            }
+            else
+            {
+                clientId = "all";
+                controllerUrl = connectCode;
+            }
 
             EntryStrength = controllerUrl + "/api/v2/game/" + clientId + "/strength";
             EntryFire = controllerUrl + "/api/v2/game/" + clientId + "/action/fire";

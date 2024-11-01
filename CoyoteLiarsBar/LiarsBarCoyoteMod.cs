@@ -11,8 +11,7 @@ namespace CoyoteLiarsBar
     {
         internal static ManualLogSource Log;
 
-        public static ConfigEntry<string> ControllerUrl { get; set; }
-        public static ConfigEntry<string> CoyoteClientId { get; set; }
+        public static ConfigEntry<string> ControllerConnectCode { get; set; }
 
         public static ConfigEntry<int> InitStrength { get; set; }
         
@@ -38,10 +37,8 @@ namespace CoyoteLiarsBar
             Harmony.CreateAndPatchAll(typeof(LiarsBarCoyoteHooks));
             Log.LogInfo("LiarsBarCoyoteMod started!");
 
-            ControllerUrl = Config.Bind("1. 控制器设置", "控制器URL", "http://127.0.0.1:8920",
-                new ConfigDescription("Coyote Game Hub控制器URL", null, new ConfigurationManagerAttributes{ Order = 2 }));
-            CoyoteClientId = Config.Bind("1. 控制器设置", "郊狼ClientId", "all",
-                new ConfigDescription("郊狼的ClientId", null, new ConfigurationManagerAttributes { Order = 1 }));
+            ControllerConnectCode = Config.Bind("1. 控制器设置", "控制器游戏连接码", "all@http://127.0.0.1:8920",
+                new ConfigDescription("Coyote Game Hub控制器的游戏链接码，本地使用时无需更改", null, new ConfigurationManagerAttributes{ Order = 2 }));
 
             InitStrength = Config.Bind("2. 初始电量", "对局开始重设电量", 0,
                 new ConfigDescription("每次对局开始重设电量为指定值", null, new ConfigurationManagerAttributes { Order = 1 }));
